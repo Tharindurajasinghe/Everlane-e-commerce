@@ -1,11 +1,7 @@
-// File: src/pages/ProductDetailsPage.jsx
-// Updated to match your Figma design (color #8F9AA2)
-// Clean layout + Tailwind + full comments
-
 import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+//import Header from "../components/Header";
+//import Footer from "../Footer/components/Footer";
 import { CartContext } from "../context/CartContext";
 
 export default function ProductDetailsPage() {
@@ -62,7 +58,7 @@ export default function ProductDetailsPage() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Header />
+      
 
       {/* CONTENT */}
       <main className="container mx-auto px-6 py-10 flex-1">
@@ -131,7 +127,7 @@ export default function ProductDetailsPage() {
         </div>
       </main>
 
-      <Footer />
+      
     </div>
   );
 }
