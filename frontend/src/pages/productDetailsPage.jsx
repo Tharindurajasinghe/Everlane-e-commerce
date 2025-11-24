@@ -13,9 +13,8 @@ export default function ProductDetailsPage() {
   const [qty, setQty] = useState(1);            // quantity selector
   const [loading, setLoading] = useState(true);
 
-  // ---------------------------
-  // LOAD PRODUCT + REVIEWS
-  // ---------------------------
+  
+  // LOAD PRODUCT + REVIEWE
   useEffect(() => {
     async function loadData() {
       try {
@@ -40,9 +39,9 @@ export default function ProductDetailsPage() {
     loadData();
   }, [id]);
 
-  // ---------------------------
+  
   // ADD TO CART
-  // ---------------------------
+  
   const handleAddToCart = async () => {
     try {
       
@@ -57,9 +56,9 @@ export default function ProductDetailsPage() {
     }
   };
 
-  // ---------------------------
-  // BUY NOW → CHECKOUT PAGE
-  // ---------------------------
+  
+  // BUY NOW -> CHECKOUT PAGE
+  
   const handleBuyNow = () => {
     navigate("/checkout");
   };
@@ -72,9 +71,9 @@ export default function ProductDetailsPage() {
       <Header />
 
       <div className="container mx-auto px-6 py-10">
-        {/* --------------------------- */}
+        
         {/* PRODUCT SECTION */}
-        {/* --------------------------- */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           
           {/* LEFT: Product Image */}
@@ -160,9 +159,9 @@ export default function ProductDetailsPage() {
           </div>
         </div>
 
-        {/* --------------------------- */}
+        
         {/* CUSTOMER REVIEWS SECTION */}
-        {/* --------------------------- */}
+        
         <div className="mt-16">
           <h2 className="text-xl font-semibold mb-6">Customers Feedback</h2>
 
