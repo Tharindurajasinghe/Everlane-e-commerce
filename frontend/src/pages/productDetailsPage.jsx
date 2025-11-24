@@ -119,7 +119,7 @@ const product = products.find(p => p.id === Number(id));
 
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="h-full w-full flex flex-col bg-white">
       {/* <Header />*/}
 
       <div className="container mx-auto px-6 py-10">
@@ -174,18 +174,18 @@ const product = products.find(p => p.id === Number(id));
             {/* Quantity Selector */}
             <div className="flex items-center gap-4 mb-6">
               <button
-                className="px-3 py-1 bg-[#ececec]"
+                className="px-3 py-1 bg-[#8F9AA2]"
                 onClick={() => qty > 1 && setQty(qty - 1)}
               >
                 -
               </button>
 
-              <span className="px-4 py-1 bg-white border rounded">
+              <span className="px-4 py-1 bg-black border rounded">
                 {qty}
               </span>
 
               <button
-                className="px-3 py-1 bg-[#ececec]"
+                className="px-3 py-1 bg-black"
                 onClick={() => setQty(qty + 1)}
               >
                 +
@@ -213,16 +213,17 @@ const product = products.find(p => p.id === Number(id));
 
         
         {/* CUSTOMER REVIEWS SECTION */}
+
         
         <div className="mt-16">
-          <h2 className="text-xl font-semibold mb-6">Customers Feedback</h2>
+          <h2 className="text-xl0 text-black flex font-semibold mb-6">Customers Feedback</h2>
 
           {reviews.map((rev, index) => (
             <div
               key={index}
               className="bg-gray-100 p-6 rounded-lg shadow-sm mb-4"
             >
-              <div className="font-semibold">
+              <div className="font-semibold text-black">
                 {rev.firstName} {rev.lastName}{" "}
                 <span className="text-yellow-500 ml-2">
                   {"★".repeat(rev.rating)}{" "}
