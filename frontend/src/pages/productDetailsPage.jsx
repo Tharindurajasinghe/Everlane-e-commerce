@@ -3,17 +3,60 @@ import axios from "axios";
 //import Header from "../components/Header";
 //import Footer from "../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
+import products from "../products";
+
+// sample dummy reviews for check
+const dummyReviews = [
+  {
+    firstName: "John",
+    lastName: "Doe",
+    rating: 5,
+    comment: "Amazing product! Highly recommend.",
+    date: "2025-01-01",
+  },
+  {
+    firstName: "Sarah",
+    lastName: "Perera",
+    rating: 4,
+    comment: "Good quality for the price.",
+    date: "2025-01-05",
+  },
+  {
+    firstName: "Nimal",
+    lastName: "Silva",
+    rating: 3,
+    comment: "Satisfactory but could be better.",
+    date: "2025-01-10",
+  },
+];
+
 
 export default function ProductDetailsPage() {
-  const { id } = useParams();                   // get product ID from URL
+ // const { id } = useParams();                   // get product ID from URL
+  const { id } = useParams();
+const product = products.find(p => p.id === Number(id));
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState(null); // product info
-  const [reviews, setReviews] = useState([]);   // customer reviews
+  //const [product, setProduct] = useState(null); // product info
+  //const [reviews, setReviews] = useState([]);   // customer reviews
   const [qty, setQty] = useState(1);            // quantity selector
   const [loading, setLoading] = useState(true);
 
-  
+
+
+  const [reviews, setReviews] = useState(dummyReviews);
+
+
+  // this code for test 
+  useEffect(() => {
+  setLoading(false);
+}, []);
+ //end test
+
+
+
+
+  /*
   // LOAD PRODUCT + REVIEWE
   useEffect(() => {
     async function loadData() {
@@ -23,7 +66,7 @@ export default function ProductDetailsPage() {
         const productRes = await axios.get(`http://API/products/${id}`);
 
         // GET REVIEWS
-        const reviewsRes = await axios.get(
+       const reviewsRes = await axios.get(
           `http://API/products/${id}/reviews`
         );
 
@@ -39,10 +82,10 @@ export default function ProductDetailsPage() {
     loadData();
   }, [id]);
 
-  
+  */
   // ADD TO CART
   
-  const handleAddToCart = async () => {
+  /* const handleAddToCart = async () => {
     try {
       
       await axios.post("http://API/cart/add", {
@@ -50,11 +93,17 @@ export default function ProductDetailsPage() {
         quantity: qty,
       });
 
-      alert("Item added to cart!");
+      alert("Item added to cart!"); 
     } catch (err) {
       console.error("Add to cart failed", err);
     }
-  };
+  }; */
+
+  //add sample data to add to cart 
+  const handleAddToCart = () => {
+  alert(`Added ${qty} item(s) to cart`);
+};
+
 
   
   // BUY NOW -> CHECKOUT PAGE
@@ -66,9 +115,12 @@ export default function ProductDetailsPage() {
   if (loading) return <div className="text-center py-20">Loading...</div>;
   if (!product) return <div className="text-center py-20">Product not found</div>;
 
+
+
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
-      <Header />
+      {/* <Header />*/}
 
       <div className="container mx-auto px-6 py-10">
         
@@ -188,7 +240,7 @@ export default function ProductDetailsPage() {
         </div>
       </div>
 
-      <Footer />
+     { /*<Footer />*/ }
     </div>
   );
 }
